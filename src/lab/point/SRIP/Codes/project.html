@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Point Operations</title>
+	<style>
+	.row {
+	  content: "";
+	  display: table;
+	  clear: both;
+	}
+
+	.column {
+	  float: left;
+	  width: 25%;
+	}
+	.pop{
+	  position: relative;
+	  display: inline-block;
+	  cursor: pointer;
+	  -webkit-user-select: none;
+	  -moz-user-select: none;
+	  -ms-user-select: none;
+	  user-select: none;
+	}
+	.pop .up {
+	  visibility: hidden;
+	  width: 160px;
+	  background-color: #555;
+	  color: #fff;
+	  text-align: center;
+	  border-radius: 6px;
+	  padding: 8px 0;
+	  position: absolute;
+	  z-index: 1;
+	  bottom: 125%;
+	  left: 50%;
+	  margin-left: -80px;
+	}
+	.div1 {
+	  padding-left:150px;
+	  width: 300px;
+	  height: 300px;
+	  padding:10px;
+	  border: 1px solid #ffffff;
+	}
+	.div2 {
+	  padding-right:150px;
+	  width: 250px;
+	  height: 100px;
+	  padding: 10px;
+	  border: 1px solid #ffffff;
+	}
+	.div1_1{
+	  width: 780px;
+	  height: 400px;
+	  margin-left:500px;
+	  margin-top:-300px;
+	  padding:10px;
+	}
+	#info_box{
+	  padding-right:150px;
+	  width: 300px;
+	  height: 250px;
+	  padding: 10px;
+	  border: 1px solid #ffffff;
+	}
+	</style>
+</head>
+<script>
+	function select_image(){
+		var pic = document.getElementById("grid");
+  		pic.classList.toggle("show");
+	}
+</script>
+<body style="background-color:powderblue;border-color:white">
+	<h1 style="color:white;text-align:center;"> POINT OPERATIONS </h1>
+	<br><br>
+	<div id="info_box">
+		<h4>Guidelines</h4>
+		<p id="text" class="div2" style="border-style:dotted;border-width:2px;"> Start the Experiment by clicking on 'Select Image' and selecting an Input Image from the Mosaic </p>
+		<button id="sel" class="pop" type="button" onclick="select_image()">Select Image
+			<!--<span class="up" id="grid">-->
+			<div class="row up" id="grid">
+			  <div class="column">
+			    <img src="p1.jpg" style="width:100%" onclick="openModal();currentSlide(1)" class="hover-shadow cursor">
+			  </div>
+			  <div class="column">
+			    <img src="p8.jpg" style="width:100%" onclick="openModal();currentSlide(2)" class="hover-shadow cursor">
+			  </div>
+			  <div class="column">
+			    <img src="p3.jpg" style="width:100%" onclick="openModal();currentSlide(3)" class="hover-shadow cursor">
+			  </div>
+			  <div class="column">
+			   <img src="p5.jpg" style="width:100%" onclick="openModal();currentSlide(4)" class="hover-shadow cursor">
+			  </div>
+			</div>
+			<!--</span>-->
+		</button>
+		<button id="reset" type="button">Reset</button>
+		<button id="run" type="button">Run</button>
+	</div>
+	<br/>
+	<table class="div1_1">
+		<tr><td><div class="div1"></div><p align="center">input image</p><p align="center">300x300</p></td>
+		<td><div class="div1"></div><p align="center">Output image</p><p align="center">__x__</p></td></tr>
+	</table>
+	<div>
+	<div>
+	<!--<div class="div1" padding-right="400px"/>-->
+		
+</body>
+</html>
