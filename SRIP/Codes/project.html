@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0042)file:///C:/Users/Admin/Downloads/try2.html -->
+
 <html>
 <head>
 <title>Point Operations</title>
@@ -92,7 +92,13 @@
  padding:10px;
  border: 1px solid #ffffff;
 }
+.div_1 {
+ padding-left:150px;
+ width: 300px;
+ height: 300px;
+ padding:1px;
 
+}
 .div2 {
  padding-right:150px;
  width: 250px;
@@ -183,21 +189,210 @@ margin-top:10px;
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #4CAF50;
+  background: #000000;
   cursor: pointer;
   }
-</style>
+  [slider] {
+  position: relative;
+  height: 14px;
+  border-radius: 10px;
+  text-align: left;
+  margin: 45px 0 10px 0;
+}
 
+[slider] > div {
+  position: absolute;
+  left: 13px;
+  right: 15px;
+  height: 14px;
+}
+
+[slider] > div > [inverse-left] {
+  position: absolute;
+  left: 0;
+  height: 14px;
+  border-radius: 10px;
+  background-color: #636161;
+  margin: 0 7px;
+}
+
+[slider] > div > [inverse-right] {
+  position: absolute;
+  right: 0;
+  height: 14px;
+  border-radius: 10px;
+  background-color: #636161;
+  margin: 0 7px;
+}
+
+[slider] > div > [range] {
+  position: absolute;
+  left: 0;
+  height: 14px;
+  border-radius: 14px;
+  background-color: #636161 ;
+}
+
+[slider] > div > [thumb] {
+  position: absolute;
+  top: -7px;
+  z-index: 2;
+  height: 28px;
+  width: 28px;
+  text-align: left;
+  margin-left: -11px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+  background-color: #000000;
+  border-radius: 50%;
+  outline: none;
+}
+
+[slider] > input[type=range] {
+  position: absolute;
+  pointer-events: none;
+  -webkit-appearance: none;
+  z-index: 3;
+  height: 14px;
+  top: -2px;
+  width: 255%;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  -moz-opacity: 0;
+  -khtml-opacity: 0;
+  opacity: 0;
+}
+
+div[slider] > input[type=range]::-ms-track {
+  -webkit-appearance: none;
+  background: transparent;
+  color: transparent;
+}
+
+div[slider] > input[type=range]::-moz-range-track {
+  -moz-appearance: none;
+  background: transparent;
+  color: transparent;
+}
+
+div[slider] > input[type=range]:focus::-webkit-slider-runnable-track {
+  background: transparent;
+  border: transparent;
+}
+
+div[slider] > input[type=range]:focus {
+  outline: none;
+}
+
+div[slider] > input[type=range]::-ms-thumb {
+  pointer-events: all;
+  width: 28px;
+  height: 28px;
+  border-radius: 0px;
+  border: 0 none;
+  background: red;
+}
+
+div[slider] > input[type=range]::-moz-range-thumb {
+  pointer-events: all;
+  width: 28px;
+  height: 28px;
+  border-radius: 0px;
+  border: 0 none;
+  background: red;
+}
+
+div[slider] > input[type=range]::-webkit-slider-thumb {
+  pointer-events: all;
+  width: 28px;
+  height: 28px;
+  border-radius: 0px;
+  border: 0 none;
+  background: red;
+  -webkit-appearance: none;
+}
+
+div[slider] > input[type=range]::-ms-fill-lower {
+  background: transparent;
+  border: 0 none;
+}
+
+div[slider] > input[type=range]::-ms-fill-upper {
+  background: transparent;
+  border: 0 none;
+}
+
+div[slider] > input[type=range]::-ms-tooltip {
+  display: none;
+}
+
+[slider] > div > [sign] {
+  opacity: 0;
+  position: absolute;
+  margin-left: -11px;
+  top: -39px;
+  z-index:3;
+  background-color: #1ABC9C;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: 28px;
+  -webkit-border-radius: 28px;
+  align-items: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  text-align: center;
+}
+
+[slider] > div > [sign]:after {
+  position: absolute;
+  content: '';
+  left: 0;
+  border-radius: 16px;
+  top: 19px;
+  border-left: 14px solid transparent;
+  border-right: 14px solid transparent;
+  border-top-width: 16px;
+  border-top-style: solid;
+  border-top-color: #1ABC9C;
+}
+
+[slider] > div > [sign] > span {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+[slider]:hover > div > [sign] {
+  opacity: 1;
+}
+</style>
 <script>
 
 function myfunc(e) {
  
- var id= e[3];
+
+var id= e[3];
+
+
+
  
- 
- console.log(id);
+
   
-  document.getElementById("input").innerHTML ="<img src=\ 'p"+id+".jpg\' width=\'300px\' height=\'300px\'>" ;
+  document.getElementById("input").innerHTML ="<canvas id='canvas' style='border: 1px solid; width:300px; height:300px;'></canvas>" ;
+  var canvas=document.getElementById('canvas');
+canvas.width=canvas.scrollWidth;
+canvas.height=canvas.scrollHeight;
+var ctx=canvas.getContext('2d');
+
+var image= new Image();
+image.onload=function(){
+ctx.drawImage(image,0,0,canvas.width,canvas.height);	
+
+}
+
+image.src="p"+id+".jpg";
+
   document.getElementById("text").innerHTML="Select appropriate parameters and click on 'Run'."
   toggleGrid();
  
@@ -205,8 +400,7 @@ function myfunc(e) {
 </script>
 
 </head>
-
-<body style="background-color:	#FFDAB9 ;border-color:white">
+<body style="background-color:#FFDAB9 ;border-color:white">
 <h1 style="color:white;text-align:center;"> POINT OPERATIONS </h1>
 <br><br>
 <div id="info_box">
@@ -253,6 +447,7 @@ function myfunc(e) {
 </div>
 </div>
 </div>
+
 <script>
 var grid = document.querySelector(".grid");
     var pop = document.querySelector(".pop");
@@ -276,33 +471,128 @@ var grid = document.querySelector(".grid");
    
    function mynon()
 {
-	var d=document.getElementById("linear_box");
-	/*function log()
-	{
-	
-		<p>Log function<br>f(r):<br> <span id='logc'></span> xlog10(1+r)</p>
-           		<div class="slidecontainer">
-			<p>c:</p>
-  			<input type='range' min='0' max='254' value='50' class='slider' id='log'>
+	document.getElementById("linear_box").innerHTML = "<p>Log function<br><br>f(r):<br> <span id='logc'></span> xlog10(1+r)</p><div class='slidecontainer'><p>c:</p><input type='range' min='0' max='254' value='50' class='slider' id='log'></div>";
+var slider3 = document.getElementById("log");
+var output3 = document.getElementById("logc");
+slider3.oninput = function() {
+  output3.innerHTML = this.value;
   
-			</div>
-			
-	}*/
-	
-	d.innerHTML="hello";
-	
+  
+}
+}
+
+   function myclip()
+{
+
+  
+
+document.getElementById("linear_box").innerHTML="<p>Clipper</p><p>Window&nbsp&nbsp&nbsp&nbspStart: <span id='strt'></span>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp End: <span id='end'></span></p><div slider id='slider-distance' style='margin-top:20px; '> <div><div inverse-left style='width:50%;'></div><div inverse-right style='width:50%;'></div><div range style='left:10%;right:20%;'></div><span thumb style='left:30%;'></span><span thumb style='left:60%;'></span></div> <input type='range' id='slidstrt' tabindex='0' value='30' max='100' min='0'   oninput='this.value=Math.min(this.value,this.parentNode.childNodes[5].value-1);var value=(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.value)-(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.min);var children = this.parentNode.childNodes[1].childNodes;children[1].style.width=value+\'%\';children[5].style.left=value+\'%\';children[7].style.left=value+\'%\';children[11].style.left=value+\'%\';children[11].childNodes[1].innerHTML=this.value;s=this.value;var output1 = document.getElementById('strt'); output1.innerHTML =s;' ><input type='range' id='slidend' tabindex='0' value='60' max='100' min='0'  oninput='this.value=Math.max(this.value,this.parentNode.childNodes[3].value-(-1));var value=(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.value)-(100/(parseInt(this.max)-parseInt(this.min)))*parseInt(this.min);var children = this.parentNode.childNodes[1].childNodes;children[3].style.width=(100-value)+\'%\';children[5].style.right=(100-value)+\'%\';children[9].style.left=value+\'%\';children[13].style.left=value+\'%\';children[13].childNodes[1].innerHTML=this.value; e=this.value;var output2 = document.getElementById('end');output2.innerHTML =e;' ></div><div class='slidecontainer'><p>slope(m): <span id='logm'></span></p><input type='range' min='0.00' max='1.00' value='0.5' step='0.01'  class='slider' id='slidm'></div>;";
+var slider3 = document.getElementById("slidm");
+var output3 = document.getElementById("logm");
+slider3.oninput = function() {
+  output3.innerHTML =this.value;
+  }
+
+  
+
+
+
+  
+
+  
 }
 
 
+/*function start(s) {
+
+var output1 = document.getElementById("strt");
+  output1.innerHTML =s;
+  }
+ 
+function end(e) {
+
+var output2 = document.getElementById("end");
+  output2.innerHTML =e;
+  }*/
+
+
+	
+
+
+  function mylin()
+{
+	document.getElementById("linear_box").innerHTML = "<p>f(r): <span id='idm'></span>r+<span id='idc'></span></p><div class='slidecontainer'><p>slope(m):</p><input type='range' min='-57.3' max='57.3' value='50' class='slider' id='m'><br><p>offset(c):</p><input type='range' min='-255' max='255' value='50' class='slider' id='c'>";
+var slider1 = document.getElementById("m");
+var output1 = document.getElementById("idm");
+var slider2 = document.getElementById("c");
+var output2 = document.getElementById("idc");
+output1.innerHTML = slider1.value;
+output2.innerHTML = slider2.value;
+
+slider1.oninput = function() {
+  output1.innerHTML = this.value;
+  
+  
+}
+slider2.oninput = function() {
+  output2.innerHTML = this.value;	
+}
+
+}
+  function run()
+{
+var canvas=document.getElementById('canvas');
+
+
+if(canvas && canvas.getContext("2d"))
+
+{ 
+var context= canvas.getContext("2d");
+for(var i=0; i< 10; i++) {
+  var myimg = "img" + i;
+  var imgsrc=document.getElementById('myimg')
+
+}
+var Img=context.getImageData(0,0,canvas.width,canvas.height);
+var pixel=Img.data;
+var init=1;
+while(init<context.canvas.height){
+	var slope=parseFloat(document.getElementById("idm").innerHTML);
+	var offset=parseFloat(document.getElementById("idc").innerHTML);
+	
+	for(var j=0;j<5;j++){
+	var row=(init+j)*context.canvas.width*4;
+	for(var i=0;i<context.canvas.width*4;i+=4){
+	console.log((slope*pixel[row+i])+offset);
+	
+		pixel[row+i]=(slope*pixel[row+i])+offset;
+		pixel[row+i+1]=(slope*pixel[row+i+1])+offset;
+		pixel[row+i+2]=(slope*pixel[row+i+2])+offset;
+		
+		
+	}
+		
+		
+	}
+	init+=5;
+}
+	
+}
+var output=document.getElementById('out');
+var ctx=output.getContext("2d");
+context.putImageData(Img,0,0);
+
+}
+
 </script>
 
+
 <button id="reset" type="button">Reset</button>
-<button id="run" type="button">Run</button>
+<button id="run" type="button" onclick="run()">Run</button>
 </div>
 <br>
-
 <div id="myDIV">
-  <button id="linear"  class="btn active">Linear</button>
+  <button id="linear" onclick="mylin()" class="btn active">Linear</button>
   <button id="non_linear" onclick="mynon()" class="btn">Non Linear</button>
   <button id="clipping" onclick="myclip()" class="btn">Clipping</button>
   <button id="window" onclick="mywindow()" class="btn">Window</button>
@@ -327,54 +617,27 @@ for (var i = 0; i < btns.length; i++) {
 
 
 <div id="linear_box" class="div3">
-<p>f(r): <span id="idm"></span>r+<span id="idc"></span></p>
-<div class="slidecontainer">
-<p>slope(m):</p>
-  <input type="range" min="-57.3" max="57.3" value="50" class="slider" id="m">
-  <br>
-  <p>offset(c):</p>
-  <input type="range" min="-255" max="255" value="50" class="slider" id="c">
-  
-  
-</div>
+
 </div>
 
 <canvas id="graph" class="div4">
 
 </canvas>
-<div style="font-size:smaller;color:#545454"><div style="position:absolute;top:940px;left:41px;width:31.428571428571427px;text-align:center">0</div><div style="position:absolute;top:940px;left:91px;width:31.428571428571427px;text-align:center" >50</div><div style="position:absolute;top:940px;left:141px;width:31.428571428571427px;text-align:center" >100</div><div style="position:absolute;top:940px;left:191px;width:31.428571428571427px;text-align:center">150</div><div style="position:absolute;top:940px;left:241px;width:31.428571428571427px;text-align:center" >200</div><div style="position:absolute;top:940px;left:295px;width:31.428571428571427px;text-align:center" >250</div><div 
-style="position:absolute;top:890px;right:1470px;width:15px;text-align:right">50</div><div 
-style="position:absolute;top:840px;right:1470px;width:15px;text-align:right" >100</div><div 
-style="position:absolute;top:790px;right:1470px;width:15px;text-align:right">150</div><div 
-style="position:absolute;top:735px;right:1470px;width:15px;text-align:right" >200</div><div 
-style="position:absolute;top:680px;right:1470px;width:15px;text-align:right" >250</div></div>
+<div style="font-size:smaller;color:#545454"><div
+style="position:absolute;top:940px;left:41px;width:31.428571428571427px;text-align:center">0</div><div
+  style="position:absolute;top:940px;left:91px;width:31.428571428571427px;text-align:center" >50</div><div
+   style="position:absolute;top:940px;left:141px;width:31.428571428571427px;text-align:center" >100</div><div
+    style="position:absolute;top:940px;left:191px;width:31.428571428571427px;text-align:center">150</div><div
+	 style="position:absolute;top:940px;left:241px;width:31.428571428571427px;text-align:center" >200</div><div
+	  style="position:absolute;top:940px;left:295px;width:31.428571428571427px;text-align:center" >250</div><div 
+style="position:absolute;top:890px;right:1215px;width:15px;text-align:right">50</div><div 
+style="position:absolute;top:840px;right:1215px;width:15px;text-align:right" >100</div><div 
+style="position:absolute;top:790px;right:1215px;width:15px;text-align:right">150</div><div 
+style="position:absolute;top:735px;right:1215px;width:15px;text-align:right" >200</div><div 
+style="position:absolute;top:680px;right:1215px;width:15px;text-align:right" >250</div></div>
 
-<script>
-var slider1 = document.getElementById("m");
-var output1 = document.getElementById("idm");
-var slider2 = document.getElementById("c");
-var output2 = document.getElementById("idc");
-output1.innerHTML = slider1.value;
-output2.innerHTML = slider2.value;
+<!--<script>
 
-slider1.oninput = function() {
-  output1.innerHTML = this.value;
-  m=document.getElementById("m").value;
-  c=document.getElementById("c").value;
-  draw(m,c);
-}
-
-/*function slope(){
-  m=document.getElementById("m").value;
-  output1.innerHTML = m;
-  calc()
-}*/
-slider2.oninput = function() {
-  output2.innerHTML = this.value;
-  c=document.getElementById("c").value;
-  m=document.getElementById("m").value;
-  draw(m,c);
-}
 function draw(m,co){
 	var c=document.getElementById("graph");
 	var ctx=c.getContext('2d');
@@ -393,12 +656,13 @@ function draw(m,co){
 	ctx.lineTo(x,y);
 	ctx.stroke();
 }
-</script>
+</script>-->
 
 
 <table class="div1_1">
 <tbody><tr><td><div id="input" class="div1"></div><p align="center">input image</p><p align="center">300x300</p></td>
-<td><div id="output" class="div1"></div><p align="center">Output image</p><p align="center">__x__</p></td></tr>
+<td><div id="output" class="div1"><canvas id='out' style='border: 1px solid; width:300px; height:300px;'></canvas></div><p align="center">Output image</p><p align="center">__x__</p></td></tr>
 </tbody></table>
 </body>
 </html>
+
