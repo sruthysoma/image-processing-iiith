@@ -97,7 +97,6 @@
  width: 300px;
  height: 300px;
  padding:1px;
-
 }
 .div2 {
  padding-right:150px;
@@ -106,7 +105,6 @@
  padding: 10px;
  border: 1px solid #ffffff;
 }
-
 .div3 {
 	
 margin-top:10px;
@@ -116,7 +114,6 @@ margin-top:10px;
  padding: 5px;
  border: 2px dotted #ffffff;
 }
-
 .div4{
 margin-left:50px;	
 margin-top:10px;
@@ -126,7 +123,6 @@ margin-top:10px;
  padding: 5px;
  border: 2px solid #ffffff;
 }
-
 .div1_1{
  width: 780px;
  height: 400px;
@@ -140,7 +136,6 @@ margin-top:10px;
  height: 250px;
  padding: 10px;
 }
-
 .btn {
   border: none;
   outline: none;
@@ -149,16 +144,13 @@ margin-top:10px;
   cursor: pointer;
   font-size: 14px;
 }
-
 .active, .btn:hover {
   background-color: #666;
   color: white;
 }
-
 .slidecontainer {
   width: 100%;
 }
-
 .slider {
   -webkit-appearance: none;
   width: 75%;
@@ -170,11 +162,9 @@ margin-top:10px;
   -webkit-transition: .2s;
   transition: opacity .2s;
 }
-
 .slider:hover {
   opacity: 1;
 }
-
 .slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -184,7 +174,6 @@ margin-top:10px;
   background: #000000;
   cursor: pointer;
 }
-
 .slider::-moz-range-thumb {
   width: 25px;
   height: 25px;
@@ -199,14 +188,12 @@ margin-top:10px;
   text-align: left;
   margin: 45px 0 10px 0;
 }
-
 [slider] > div {
   position: absolute;
   left: 13px;
   right: 15px;
   height: 14px;
 }
-
 [slider] > div > [inverse-left] {
   position: absolute;
   left: 0;
@@ -215,7 +202,6 @@ margin-top:10px;
   background-color: #636161;
   margin: 0 7px;
 }
-
 [slider] > div > [inverse-right] {
   position: absolute;
   right: 0;
@@ -224,7 +210,6 @@ margin-top:10px;
   background-color: #636161;
   margin: 0 7px;
 }
-
 [slider] > div > [range] {
   position: absolute;
   left: 0;
@@ -232,7 +217,6 @@ margin-top:10px;
   border-radius: 14px;
   background-color: #636161 ;
 }
-
 [slider] > div > [thumb] {
   position: absolute;
   top: -7px;
@@ -247,7 +231,6 @@ margin-top:10px;
   border-radius: 50%;
   outline: none;
 }
-
 [slider] > input[type=range] {
   position: absolute;
   pointer-events: none;
@@ -262,28 +245,23 @@ margin-top:10px;
   -khtml-opacity: 0;
   opacity: 0;
 }
-
 div[slider] > input[type=range]::-ms-track {
   -webkit-appearance: none;
   background: transparent;
   color: transparent;
 }
-
 div[slider] > input[type=range]::-moz-range-track {
   -moz-appearance: none;
   background: transparent;
   color: transparent;
 }
-
 div[slider] > input[type=range]:focus::-webkit-slider-runnable-track {
   background: transparent;
   border: transparent;
 }
-
 div[slider] > input[type=range]:focus {
   outline: none;
 }
-
 div[slider] > input[type=range]::-ms-thumb {
   pointer-events: all;
   width: 28px;
@@ -292,7 +270,6 @@ div[slider] > input[type=range]::-ms-thumb {
   border: 0 none;
   background: red;
 }
-
 div[slider] > input[type=range]::-moz-range-thumb {
   pointer-events: all;
   width: 28px;
@@ -301,7 +278,6 @@ div[slider] > input[type=range]::-moz-range-thumb {
   border: 0 none;
   background: red;
 }
-
 div[slider] > input[type=range]::-webkit-slider-thumb {
   pointer-events: all;
   width: 28px;
@@ -311,21 +287,17 @@ div[slider] > input[type=range]::-webkit-slider-thumb {
   background: red;
   -webkit-appearance: none;
 }
-
 div[slider] > input[type=range]::-ms-fill-lower {
   background: transparent;
   border: 0 none;
 }
-
 div[slider] > input[type=range]::-ms-fill-upper {
   background: transparent;
   border: 0 none;
 }
-
 div[slider] > input[type=range]::-ms-tooltip {
   display: none;
 }
-
 [slider] > div > [sign] {
   opacity: 0;
   position: absolute;
@@ -343,7 +315,6 @@ div[slider] > input[type=range]::-ms-tooltip {
   justify-content: center;
   text-align: center;
 }
-
 [slider] > div > [sign]:after {
   position: absolute;
   content: '';
@@ -356,43 +327,31 @@ div[slider] > input[type=range]::-ms-tooltip {
   border-top-style: solid;
   border-top-color: #1ABC9C;
 }
-
 [slider] > div > [sign] > span {
   font-size: 12px;
   font-weight: 700;
   line-height: 28px;
 }
-
 [slider]:hover > div > [sign] {
   opacity: 1;
 }
 </style>
 <script>
-
 function myfunc(e) {
  
-
 var id= e[3];
-
-
-
  
-
   
   document.getElementById("input").innerHTML ="<canvas id='canvas' style='border: 1px solid; width:300px; height:300px;'></canvas>" ;
   var canvas=document.getElementById('canvas');
 canvas.width=canvas.scrollWidth;
 canvas.height=canvas.scrollHeight;
 var ctx=canvas.getContext('2d');
-
 var image= new Image();
 image.onload=function(){
 ctx.drawImage(image,0,0,canvas.width,canvas.height);	
-
 }
-
 image.src="p"+id+".jpg";
-
   document.getElementById("text").innerHTML="Select appropriate parameters and click on 'Run'."
   toggleGrid();
  
@@ -453,19 +412,15 @@ image.src="p"+id+".jpg";
 var grid = document.querySelector(".grid");
     var pop = document.querySelector(".pop");
     var closeButton = document.querySelector(".close-button");
-
   
-
    function toggleGrid() {
        grid.classList.toggle("show-grid");
    }
-
    function windowOnClick(event) {
        if (event.target === grid) {
            toggleGrid();
        }
    }
-
    pop.addEventListener("click", toggleGrid);
    closeButton.addEventListener("click", toggleGrid);   
    window.addEventListener("click", windowOnClick);
@@ -481,36 +436,38 @@ slider3.oninput = function() {
   
 }
 }
-
    function myclip()
 {
-z=3;
-
-  
-
+  z=3;
 document.getElementById("linear_box").innerHTML="<p>Clipper</p><p>Window</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStart:<input type='number' id='clips' value='0' style='width:3em' > &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp End:<input type='number' id='clipe' style='width:3em' value='255'> </p><div class='slidecontainer'><p>slope(m): <span id='logm'></span></p><input type='range' min='0.00' max='1.00' value='0.5' step='0.01'  class='slider' id='slidm'></div>";
 var slider3 = document.getElementById("slidm");
 var output3 = document.getElementById("logm");
 slider3.oninput = function() {
   output3.innerHTML =this.value;
-
+  }
   
-
-
-
   
-
   
 }
 
-
-
+	function mywindow()
+	{
+		z=4;
+		document.getElementById("linear_box").innerHTML="<p>Windowing</p><p>Window</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStart:<input type='number' id='windows' value='0' style='width:3em' > &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp End:<input type='number' id='windowe' style='width:3em' value='255'> </p><div class='slidecontainer'><p>slope(m): <span id='winm'></span></p><input type='range' min='0.00' max='1.00' value='0.5' step='0.01'  class='slider' id='winslidm'></div>  "
+var slider3 = document.getElementById("winslidm");
+var output3 = document.getElementById("winm");
+slider3.oninput = function() {
+  output3.innerHTML =this.value;
+  }		
+		
+		
+		
+		
+	}
 
 	
-
-
   function mylin()
-{z=1;
+{	z=1;
 	document.getElementById("linear_box").innerHTML = "<p>f(r): <span id='idm'></span>r+<span id='idc'></span></p><div class='slidecontainer'><p>slope(m):</p><input type='range' min='-57.3' max='57.3' value='50' class='slider' id='m'><br><p>offset(c):</p><input type='range' min='-255' max='255' value='50' class='slider' id='c'>";
 var slider1 = document.getElementById("m");
 var output1 = document.getElementById("idm");
@@ -518,7 +475,6 @@ var slider2 = document.getElementById("c");
 var output2 = document.getElementById("idc");
 output1.innerHTML = slider1.value;
 output2.innerHTML = slider2.value;
-
 slider1.oninput = function() {
   output1.innerHTML = this.value;
   
@@ -527,35 +483,32 @@ slider1.oninput = function() {
 slider2.oninput = function() {
   output2.innerHTML = this.value;	
 }
-
 }
   function run()
 {
-switch(z){
-	case 1:{
-	
-	var canvas=document.getElementById('canvas');
 
-
+var canvas=document.getElementById('canvas');
 if(canvas && canvas.getContext("2d"))
-
 { 
 var context= canvas.getContext("2d");
 for(var i=0; i< 10; i++) {
   var myimg = "img" + i;
   var imgsrc=document.getElementById('myimg')
-
 }
 var Img=context.getImageData(0,0,canvas.width,canvas.height);
 var pixel=Img.data;
 var init=1;
 while(init<context.canvas.height){
+	switch(z){
+	case 1:{
 	var slope=parseFloat(document.getElementById("idm").innerHTML);
 	var offset=parseFloat(document.getElementById("idc").innerHTML);
 	
 	for(var j=0;j<5;j++){
 	var row=(init+j)*context.canvas.width*4;
-	for(var i=0;i<context.canvas.width*4;i+=4){	
+	for(var i=0;i<context.canvas.width*4;i+=4){
+	
+	
 		pixel[row+i]=(slope*pixel[row+i])+offset;
 		pixel[row+i+1]=(slope*pixel[row+i+1])+offset;
 		pixel[row+i+2]=(slope*pixel[row+i+2])+offset;
@@ -563,29 +516,11 @@ while(init<context.canvas.height){
 		
 	}
 		
-	}	
+		
 	}
 	init+=5;
-}
-}break;
-case 2:{
-	
-	var canvas=document.getElementById('canvas');
-
-
-if(canvas && canvas.getContext("2d"))
-
-{ 
-var context= canvas.getContext("2d");
-for(var i=0; i< 10; i++) {
-  var myimg = "img" + i;
-  var imgsrc=document.getElementById('myimg')
-
-}
-var Img=context.getImageData(0,0,canvas.width,canvas.height);
-var pixel=Img.data;
-var init=1;
-while(init<context.canvas.height){
+	}break;
+	case 2:{
 	var log=parseFloat(document.getElementById("logc").innerHTML);
 	
 	
@@ -605,9 +540,69 @@ while(init<context.canvas.height){
 		
 	}
 	init+=5;
-}
-}
+	}break;
+	case 3:{
+	var clope=parseFloat(document.getElementById("logm").innerHTML)
+	var clstrt=parseInt(document.getElementById("clips").value);
+	
+	var clend=parseInt(document.getElementById("clipe").value);
+	
+	
+for(var j=0;j<5;j++){
+	var row=(init+j)*context.canvas.width*4;
+	for(var i=0;i<context.canvas.width*4;i+=4){
+	
+	for(var c=0;c<3;c++){
+		 if( pixel[row+i+c]<clstrt)
+		 	pixel[row+i+c]=0;
+		else if (clstrt<=pixel[row+i+c] && pixel[row+i+c]<=clend)
+			pixel[row+i+c]=clope*pixel[row+i+c];
+		else if( pixel[row+i+c]>clend)
+			pixel[row+i+c]=255 ;
+		}
+				
+	}
+		
+	}	
+	init+=5;
+	}break;
+		case 4:{
+	var winde=parseFloat(document.getElementById("winm").innerHTML)
+	var winds=parseInt(document.getElementById("windows").value);
+	
+	var wend=parseInt(document.getElementById("windowe").value);
+	
+	
+for(var j=0;j<5;j++){
+	var row=(init+j)*context.canvas.width*4;
+	for(var i=0;i<context.canvas.width*4;i+=4){
+	
+	for(var c=0;c<3;c++){
+		 if( pixel[row+i+c]<winds)
+		 	pixel[row+i+c]=0;
+		else if (winds<=pixel[row+i+c] && pixel[row+i+c]<=wend)
+			pixel[row+i+c]=clope*pixel[row+i+c];
+		else if( pixel[row+i+c]>wend)
+			pixel[row+i+c]=0 ;
+		}
+				
+	}
+		
+	}	
+	init+=5;
+	}
+	
+	}
+	}
+	}
+	
 
+	
+
+var output=document.getElementById('out');
+var ctx=output.getContext("2d");
+context.putImageData(Img,0,0);
+}
 </script>
 
 
@@ -625,7 +620,6 @@ while(init<context.canvas.height){
 
 
 <script>
-
 var header = document.getElementById("myDIV");
 var btns = header.getElementsByClassName("btn");
 for (var i = 0; i < btns.length; i++) {
@@ -635,8 +629,6 @@ for (var i = 0; i < btns.length; i++) {
   this.className += " active";
   });
 }
-
-
 </script>
 
 
@@ -661,7 +653,6 @@ style="position:absolute;top:735px;right:1215px;width:15px;text-align:right" >20
 style="position:absolute;top:680px;right:1215px;width:15px;text-align:right" >250</div></div>
 
 <!--<script>
-
 function draw(m,co){
 	var c=document.getElementById("graph");
 	var ctx=c.getContext('2d');
@@ -689,4 +680,3 @@ function draw(m,co){
 </tbody></table>
 </body>
 </html>
-
