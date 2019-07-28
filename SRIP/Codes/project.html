@@ -117,10 +117,10 @@ margin-top:10px;
 .div4{
 margin-left:50px;	
 margin-top:10px;
- padding:20px;
- width: 250px;
- height: 250px;
- padding: 5px;
+ /*padding:20px;*/
+ width: 255px;
+ height: 255px;
+/* padding: 5px;*/
  border: 2px solid #ffffff;
 }
 .div1_1{
@@ -357,6 +357,7 @@ image.src="p"+id+".jpg";
  
  }
  var z=0;
+
 </script>
 
 </head>
@@ -503,7 +504,7 @@ while(init<context.canvas.height){
 	case 1:{
 	var slope=parseFloat(document.getElementById("idm").innerHTML);
 	var offset=parseFloat(document.getElementById("idc").innerHTML);
-	
+	draw(slope,offset);
 	for(var j=0;j<5;j++){
 	var row=(init+j)*context.canvas.width*4;
 	for(var i=0;i<context.canvas.width*4;i+=4){
@@ -606,12 +607,12 @@ context.putImageData(Img,0,0);
 </script>
 
 
-<button id="reset" type="button">Reset</button>
+<button type="button" onClick="window.location.reload();">Reset</button>
 <button id="run" type="button" onclick="run()">Run</button>
 </div>
 <br>
 <div id="myDIV">
-  <button id="linear" onclick="mylin()" class="btn active">Linear</button>
+  <button id="linear" onclick="mylin();draw(m,c);" class="btn active">Linear</button>
   <button id="non_linear" onclick="mynon()" class="btn">Non Linear</button>
   <button id="clipping" onclick="myclip()" class="btn">Clipping</button>
   <button id="window" onclick="mywindow()" class="btn">Window</button>
@@ -645,33 +646,36 @@ style="position:absolute;top:940px;left:41px;width:31.428571428571427px;text-ali
    style="position:absolute;top:940px;left:141px;width:31.428571428571427px;text-align:center" >100</div><div
     style="position:absolute;top:940px;left:191px;width:31.428571428571427px;text-align:center">150</div><div
 	 style="position:absolute;top:940px;left:241px;width:31.428571428571427px;text-align:center" >200</div><div
-	  style="position:absolute;top:940px;left:295px;width:31.428571428571427px;text-align:center" >250</div><div 
+	  style="position:absolute;top:940px;left:291px;width:31.428571428571427px;text-align:center" >250</div><div 
 style="position:absolute;top:890px;right:1215px;width:15px;text-align:right">50</div><div 
 style="position:absolute;top:840px;right:1215px;width:15px;text-align:right" >100</div><div 
 style="position:absolute;top:790px;right:1215px;width:15px;text-align:right">150</div><div 
-style="position:absolute;top:735px;right:1215px;width:15px;text-align:right" >200</div><div 
-style="position:absolute;top:680px;right:1215px;width:15px;text-align:right" >250</div></div>
+style="position:absolute;top:740px;right:1215px;width:15px;text-align:right" >200</div><div 
+style="position:absolute;top:690px;right:1215px;width:15px;text-align:right" >250</div></div>
 
-<!--<script>
+<script>
 function draw(m,co){
 	var c=document.getElementById("graph");
 	var ctx=c.getContext('2d');
 	ctx.clearRect(0,0,c.width,c.height);
 	var y=co;
+	
 	ctx.moveTo(0,co);
+	ctx.strokeStyle = 'blue'
 	ctx.stroke();
-	for(x=1;x<250;x++)
+	for(x=1;x<255;x++)
 	{	
 		y=(m*x)+co;
-		console.log(x);
-		console.log(y)
-		ctx.clearRect(0,0,250,250);
+		
+		ctx.lineTo(x,y);
+	ctx.strokeStyle = 'blue'
+	ctx.stroke();
+		
 		
 	}
-	ctx.lineTo(x,y);
-	ctx.stroke();
+	
 }
-</script>-->
+</script>
 
 
 <table class="div1_1">
