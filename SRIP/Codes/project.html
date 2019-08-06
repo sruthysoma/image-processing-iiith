@@ -60,6 +60,13 @@
  padding:30px;
 }
 .pop{
+ border-radius: 5px;
+    border: 0;
+    width: 120px;
+    height:30px;
+    
+    background: #f4f4f4;
+ font-family:courier;
  position: relative;
  display: inline-block;
  cursor: pointer;
@@ -67,6 +74,15 @@
  -moz-user-select: none;
  -ms-user-select: none;
  user-select: none;
+}
+.pop1{
+	border-radius: 5px;
+    border: 0;
+    width: 80px;
+    height:30px;
+    font-family:courier;
+    background: #f4f4f4;
+	cursor: pointer;
 }
 .pop .up {
  visibility: hidden;
@@ -129,10 +145,12 @@ margin-top:10px;
  padding: 10px;
 }
 .btn {
+	border-radius:5px;
   border: none;
   outline: none;
   padding: 10px 16px;
   background-color: #f1f1f1;
+  font-family:courier;
   cursor: pointer;
   font-size: 14px;
 }
@@ -336,12 +354,17 @@ var id= e[3];
   
   document.getElementById("input").innerHTML ="<canvas id='canvas' style='border: 1px solid; width:300px; height:300px;'></canvas>" ;
   var canvas=document.getElementById('canvas');
+  var can=document.getElementById('out');
 canvas.width=canvas.scrollWidth;
+can.width=can.scrollWidth;
 canvas.height=canvas.scrollHeight;
+can.height=can.scrollHeight;
 var ctx=canvas.getContext('2d');
+var context=can.getContext('2d');
 var image= new Image();
 image.onload=function(){
-ctx.drawImage(image,0,0,canvas.width,canvas.height);	
+ctx.drawImage(image,0,0,canvas.width,canvas.height);
+context.drawImage(image,0,0,can.width,can.height);	
 }
 image.src="p"+id+".jpg";
   document.getElementById("text").innerHTML="Select appropriate parameters and click on 'Run'."
@@ -353,12 +376,12 @@ image.src="p"+id+".jpg";
 </script>
 
 </head>
-<body style="background-color:#FFDAB9 ;border-color:white">
+<body background="b2.jpg"; font-family: "Times New Roman">
 <h1 style="color:white;text-align:center;"> POINT OPERATIONS </h1>
 <br><br>
 <div id="info_box">
-<h4>Guidelines</h4>
-<p id="text" class="div2" style="border-style:dotted;border-width:2px;"> Start the Experiment by clicking on 'Select Image' and selecting an Input Image from the Mosaic </p>
+<h4 style="color:white; font-size:19px;font-family:courier;">Guidelines</h4>
+<p id="text" class="div2" style="border-style:dotted;border-width:2px; color:white ;font-family:courier;"> Start the Experiment by clicking on 'Select Image' and selecting an Input Image from the Mosaic </p>
 
 <button id="sel" class="pop" type="button">Select Image</button>
 <div class="grid">
@@ -420,7 +443,7 @@ var grid = document.querySelector(".grid");
    
    function mynon()
 {	z=2;
-	document.getElementById("linear_box").innerHTML = "<p>Log function<br><br>f(r):<br> <span id='logc'></span> xlog10(1+r)</p><div class='slidecontainer'><p>c:</p><input type='range' min='0' max='254' value='50' class='slider' id='log'></div>";
+	document.getElementById("linear_box").innerHTML = "<p style='color:white;font-family:courier;'>Log function<br><br>f(r):<br> <span id='logc'></span> xlog10(1+r)</p><div class='slidecontainer'><p>c:</p><input type='range' min='0' max='254' value='50' class='slider' id='log'></div>";
 var slider3 = document.getElementById("log");
 var output3 = document.getElementById("logc");
 slider3.oninput = function() {
@@ -432,7 +455,7 @@ slider3.oninput = function() {
    function myclip()
 {
   z=3;
-document.getElementById("linear_box").innerHTML="<p>Clipper</p><p>Window</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStart:<input type='number' id='clips' value='0' style='width:3em' > &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp End:<input type='number' id='clipe' style='width:3em' value='255'> </p><div class='slidecontainer'><p>slope(m): <span id='logm'></span></p><input type='range' min='0.00' max='1.00' value='0.5' step='0.01'  class='slider' id='slidm'></div>";
+document.getElementById("linear_box").innerHTML="<p style='color:white;font-family:courier;'>Clipper</p><p style='color:white;font-family:courier;'>Window</p><p style='color:white;font-family:courier;'>&nbsp&nbsp&nbsp&nbsp&nbspStart:<input type='number' id='clips' value='0' style='width:3em' > &nbsp&nbsp&nbsp End:<input type='number' id='clipe' style='width:3em' value='255'> </p><div class='slidecontainer'><p style='color:white;font-family:courier;'>slope(m): <span id='logm'></span></p><input type='range' min='0.00' max='1.00' value='0.5' step='0.01'  class='slider' id='slidm'></div>";
 var slider3 = document.getElementById("slidm");
 var output3 = document.getElementById("logm");
 slider3.oninput = function() {
@@ -446,7 +469,7 @@ slider3.oninput = function() {
 	function mywindow()
 	{
 		z=4;
-		document.getElementById("linear_box").innerHTML="<p>Windowing</p><p>Window</p><p>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspStart:<input type='number' id='windows' value='0' style='width:3em' > &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp End:<input type='number' id='windowe' style='width:3em' value='255'> </p><div class='slidecontainer'><p>slope(m): <span id='winm'></span></p><input type='range' min='0.00' max='1.00' value='0.5' step='0.01'  class='slider' id='winslidm'></div>  "
+		document.getElementById("linear_box").innerHTML="<p style='color:white; font-family:courier;'>Windowing</p><p style='color:white;font-family:courier;'>Window</p><p style='color:white;font-family:courier;'>&nbsp&nbsp&nbsp&nbsp&nbspStart:<input type='number' id='windows' value='0' style='width:3em' >  &nbsp&nbsp&nbsp End:<input type='number' id='windowe' style='width:3em' value='255'> </p><div class='slidecontainer'><p style='color:white; font-family:courier;'>slope(m): <span id='winm'></span></p><input type='range' min='0.00' max='1.00' value='0.5' step='0.01'  class='slider' id='winslidm'></div>  "
 var slider3 = document.getElementById("winslidm");
 var output3 = document.getElementById("winm");
 slider3.oninput = function() {
@@ -461,7 +484,7 @@ slider3.oninput = function() {
 	
   function mylin()
 {	z=1;
-	document.getElementById("linear_box").innerHTML = "<p>f(r): <span id='idm'></span>r+<span id='idc'></span></p><div class='slidecontainer'><p>slope(m):</p><input type='range' min='-57.3' max='57.3' value='50' class='slider' id='m'><br><p>offset(c):</p><input type='range' min='-255' max='255' value='50' class='slider' id='c'>";
+	document.getElementById("linear_box").innerHTML = "<p style='color:white;font-family:courier;'>f(r): <span id='idm'></span>r+<span id='idc'></span></p><div class='slidecontainer'><p style='color:white;font-family:courier;'>slope(m):</p><input type='range' min='-57.3' max='57.3' value='50' class='slider' id='m'><br><p style='color:white;font-family:courier;'>offset(c):</p><input type='range' min='-255' max='255' value='50' class='slider' id='c'>";
 var slider1 = document.getElementById("m");
 
 var output1 = document.getElementById("idm");
@@ -481,6 +504,7 @@ slider2.oninput = function() {
   function run()
 {
 
+	
 var canvas=document.getElementById('canvas');
 if(canvas && canvas.getContext("2d"))
 { 
@@ -540,6 +564,7 @@ while(init<context.canvas.height){
 	var clstrt=parseInt(document.getElementById("clips").value);
 	
 	var clend=parseInt(document.getElementById("clipe").value);
+	
 	drawclip(clope,clstrt,clend);
 	
 for(var j=0;j<5;j++){
@@ -589,6 +614,7 @@ for(var j=0;j<5;j++){
 	
 	}
 	}
+	document.getElementById("text").innerHTML="Click on 'Reset' to start from the beginning."
 	}
 	
 
@@ -604,12 +630,12 @@ context.putImageData(Img,0,0);
 </script>
 
 
-<button type="button" onClick="window.location.reload();">Reset</button>
-<button id="run" type="button" onclick="run()">Run</button>
+<button type="button" class="pop1" onClick="window.location.reload();">Reset</button>
+<button id="run" type="button" class="pop1" onclick="run()">Run</button>
 </div>
 <br>
 <div id="myDIV">
-  <button id="linear" onclick="mylin()" class="btn active">Linear</button>
+  <button id="linear" onclick="mylin()" class="btn">Linear</button>
   <button id="non_linear" onclick="mynon()" class="btn">Non Linear</button>
   <button id="clipping" onclick="myclip()" class="btn">Clipping</button>
   <button id="window" onclick="mywindow()" class="btn">Window</button>
@@ -634,10 +660,10 @@ for (var i = 0; i < btns.length; i++) {
 
 </div>
 
-<canvas id="graph" width="255" height="255" style="border:1px solid #000000; margin-left:50px; margin-top:10px;">
+<canvas id="graph" width="255" height="255" style="border:1px solid #666562; margin-left:50px; margin-top:10px;">
 
 </canvas>
-<div style="font-size:smaller;color:#545454"><div
+<div style="font-size:smaller;color:#666562;font-family:courier;"><div
 style="position:absolute;top:940px;left:41px;width:31.428571428571427px;text-align:center">0</div><div
   style="position:absolute;top:940px;left:91px;width:31.428571428571427px;text-align:center" >50</div><div
    style="position:absolute;top:940px;left:141px;width:31.428571428571427px;text-align:center" >100</div><div
@@ -759,8 +785,8 @@ ctx.moveTo(0, 255);
 
 
 <table class="div1_1">
-<tbody><tr><td><div id="input" class="div1"></div><p align="center">Input Image</p><p align="center"></p></td>
-<td><div id="output" class="div1"><canvas id='out' style=' width:300px; height:300px;'></canvas></div><p align="center">Output Image</p><p align="center"></p></td></tr>
+<tbody><tr><td><div id="input" class="div1"></div><p align="center" style="color: white;font-family:courier;font-size:17px">Output Image</p><p align="center"></p></td>
+<td><div id="output" class="div1"><canvas id='out' style=' border: 1px solid; width:300px; height:300px;'></canvas></div><p align="center" style="color: white;font-family:courier;font-size:17px">Input Image</p><p align="center"></p></td></tr>
 </tbody></table>
 </body>
 </html>
